@@ -1,0 +1,8 @@
+{
+  "label": "Mobile - Worker",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Mobile application worker documentation."
+  }
+}
