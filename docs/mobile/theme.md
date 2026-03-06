@@ -1,4 +1,9 @@
-## Theme Usage Guide
+---
+sidebar_position: 2
+---
+
+
+# Theme Usage Guide
 
 This guide outlines the standardized classes for colors and spacing as defined in your Tailwind configuration.
 
