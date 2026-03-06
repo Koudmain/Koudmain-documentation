@@ -18,7 +18,7 @@ const config: Config = {
   url: "https://koudmain.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: "/Koudmain-documentation",
   trailingSlash: undefined,
 
   // GitHub pages deployment config.
