@@ -4,20 +4,108 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-darkest) 100%);
+  color: white;
+  clip-path: ellipse(150% 100% at 50% 0%);
+  margin-bottom: 2rem;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+[data-theme='dark'] .heroBanner {
+  background: linear-gradient(135deg, var(--ifm-background-surface-color) 0%, #1a1a1a 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.heroTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+[data-theme='dark'] .heroTitle {
+  background: -webkit-linear-gradient(0deg, var(--ifm-color-primary-light), var(--ifm-color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-inline: auto;
 }
 
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.buttonPrimary {
+  background-color: white !important;
+  color: var(--ifm-color-primary-darkest) !important;
+  border: none !important;
+  font-weight: 600 !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+[data-theme='dark'] .buttonPrimary {
+  background-color: var(--ifm-color-primary) !important;
+  color: white !important;
+  box-shadow: 0 10px 20px rgba(216, 74, 34, 0.2) !important;
+}
+
+.buttonPrimary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+}
+
+[data-theme='dark'] .buttonPrimary:hover {
+  background-color: var(--ifm-color-primary-light) !important;
+  box-shadow: 0 15px 30px rgba(216, 74, 34, 0.3) !important;
+}
+
+.buttonOutline {
+  background-color: transparent !important;
+  color: white !important;
+  border: 2px solid rgba(255,255,255,0.5) !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-theme='dark'] .buttonOutline {
+  color: var(--ifm-color-primary-light) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+}
+
+.buttonOutline:hover {
+  background-color: rgba(255,255,255,0.1) !important;
+  border-color: white !important;
+}
+
+[data-theme='dark'] .buttonOutline:hover {
+  background-color: rgba(216, 74, 34, 0.1) !important;
+  border-color: var(--ifm-color-primary-light) !important;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 2rem;
+    clip-path: none;
+  }
+  .heroTitle {
+    font-size: 3rem;
+  }
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
 }

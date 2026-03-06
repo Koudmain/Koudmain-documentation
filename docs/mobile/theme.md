@@ -77,5 +77,3 @@ The spacing scale uses a `rem` base where `4` equals `1rem` (16px).
 </View>
 
 ```
-
-Would you like me to generate the `fontSize` and `lineHeight` scales to complete your typography configuration?

@@ -4,37 +4,37 @@ sidebar_position: 1
 
 # Intro
 
-> « Trouvez votre remplaçant en un instant. » 
+> "Find your replacement in an instant."
 
-Bienvenue sur le GitHub officiel de **KOUDMAIN**.
-Notre ambition est claire : devenir la référence du recrutement instantané dans la restauration, l'hôtellerie et l'événementiel.
+Welcome to the official **KOUDMAIN** GitHub.
+Our ambition is clear: to become the standard for instant recruitment in the catering, hospitality, and events sectors.
 
-## 🚨 Le Problème que nous résolvons
+## 🚨 The Problem We Solve
 
-Dans le secteur des CHR (Cafés, Hôtels, Restaurants) , les absences de dernière minute et les pics d'activité désorganisent constamment les équipes.
+In the HORECA (Hotels, Restaurants, Cafés) sector, last-minute absences and activity peaks constantly disrupt teams.
 
-* **Pénurie :** Plus de 200 000 postes sont vacants et 53% des restaurateurs manquent de personnel.
-* **Lenteur :** Les plateformes d'emploi classiques sont inadaptées car trop lentes pour des besoins en temps réel.
-* **Complexité légale :** L'emploi d'extras est juridiquement complexe et surveillé ; une mauvaise gestion (comme l'omission de la DPAE) expose l'employeur à une amende de 1275 €.
+* **Shortage:** Over 200,000 positions are vacant, and 53% of restaurateurs are short-staffed.
+* **Slowness:** Traditional job platforms are unsuitable because they are too slow for real-time needs.
+* **Legal Complexity:** Employing extras is legally complex and monitored; poor management exposes the employer to heavy fines.
 
-## 💡 Notre Solution
+## 💡 Our Solution
 
-Koudmain apporte une réponse concrète en connectant les professionnels et les travailleurs indépendants via une plateforme intuitive, géolocalisée et réactive.
+Koudmain provides a concrete response by connecting professionals and independent workers via an intuitive, geolocated, and responsive platform.
 
-**Pour les restaurateurs, bars et hôtels :** 
+**For restaurants, bars, and hotels:**
 
-* Publication rapide des offres d'emploi.
-* Capacité à trouver une personne qualifiée dans l'heure.
-* Prise en charge et simplification de l'aspect légal et administratif.
-* Des profils de candidats vérifiés et notés.
+* Quick posting of job offers.
+* Ability to find a qualified person within the hour.
+* Handling and simplification of legal and administrative aspects.
+* Verified and rated candidate profiles.
 
-**Pour les particuliers expérimentés :** 
+**For experienced individuals:**
 
-* Une disponibilité gérée en temps réel.
-* Une multitude de missions au choix pour une grande liberté d'action.
-* Un cadre administratif totalement simplifié.
+* Availability managed in real-time.
+* A multitude of missions to choose from for great freedom of action.
+* A completely simplified administrative framework.
 
-## 🚀 Notre Roadmap Tech
+## 🚀 Our Tech Roadmap
 
-Nous développons activement notre application (frais de développement, intégration de prestataires de paiements sécurisés).
-À l'avenir, notre architecture devra également supporter de nouvelles fonctionnalités, comme un système de demande de bénévolat pour cibler le secteur de l'événementiel.
+We are actively developing our application.
+In the future, our architecture will also need to support new features, such as a volunteering request system to target the events sector.

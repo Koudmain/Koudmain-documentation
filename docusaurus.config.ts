@@ -6,7 +6,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "Koudmain",
-  tagline: "Le renfort instantané pour CHR",
+  tagline: "The instant reinforcement for hospitality",
   favicon: "img/logo_v1_only_transparant.png",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -88,7 +88,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: "dark",
+      style: "light",
       links: [
         {
           title: "Docs",

@@ -32,3 +32,14 @@
     --ifm-font-color-base: #cbcbcb;
     --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
 }
+
+/* Custom footer styling to blend smoothly */
+.footer {
+  background-color: var(--ifm-background-surface-color);
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] .footer {
+  background-color: #1a1a1a;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}

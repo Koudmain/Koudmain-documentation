@@ -11,18 +11,26 @@ import styles from "./index.module.css";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+    <header className={styles.heroBanner}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+        <Heading as="h1" className={styles.heroTitle}>
+          Koudmain DevCenter
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className={styles.heroSubtitle}>
+          Internal Technical Documentation
+        </p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx("button button--lg", styles.buttonPrimary)}
             to="/docs/intro"
           >
-            Koudmain documentation
+            Explore Documentation
+          </Link>
+          <Link
+            className={clsx("button button--lg", styles.buttonOutline)}
+            href="https://github.com/Koudmain"
+          >
+            GitHub Organization
           </Link>
         </div>
       </div>
@@ -31,11 +39,10 @@ function HomepageHeader() {
 }
 
 export default function Home(): ReactNode {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`Home`}
+      description="Internal technical documentation for the Koudmain development team."
     >
       <HomepageHeader />
       <main>
