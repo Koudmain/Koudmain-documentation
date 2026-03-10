@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Architecture Backend - Koudmain API
+# Architecture Backend
 
 Ce projet est une API centralisée développée avec **NestJS**.
 Elle a pour but de desservir simultanément les trois applications du projet Koudmain :
@@ -121,4 +121,4 @@ nest g controller modules/payments/controllers/payments --flat
 * **Dépendances circulaires :** Si le UsersModule importe OffersModule, et que OffersModule importe UsersModule, NestJS crashera (erreur d'indétermination). Utilisez alors l'outil de NestJS réseau `forwardRef()`, ou mieux : repensez l'architecture pour qu'un Module technique ("Shared") fournisse la logique commune aux deux !
 
 
-> 💡 Utiliser cette documentation pour approfondir le fonctionnement de NestJS : <https://docs.nestjs.com/>
+> 💡 Utiliser cette documentation pour approfondir le fonctionnement de NestJS : https://docs.nestjs.com
