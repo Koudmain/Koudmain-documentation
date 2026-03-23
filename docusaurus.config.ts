@@ -36,12 +36,52 @@ const config: Config = {
     locales: ["en", "fr"],
   },
 
+  themes: ["docusaurus-theme-openapi-docs"],
+  plugins: [
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "api",
+        docsPluginId: "classic",
+        config: {
+          documentation: {
+            specPath: "static/openapi.yaml",
+            outputDir: "docs/api",
+            sidebarOptions: {
+              groupPathsBy: "tag", // Default to tags, but we'll override category names or use another strategy. Wait, if it requires tag/tagGroup... 
+              // Actually let's just supply an empty object or just sidebarCollapsible: false if it complains.
+            },
+          }
+        }
+      },
+    ],
+    function () {
+      return {
+        name: "docusaurus-openapi-webpack-plugin",
+        configureWebpack(config, isServer, utils) {
+          return {
+            resolve: {
+              fallback: {
+                path: require.resolve("path-browserify"),
+                url: require.resolve("url/"),
+                fs: false,
+                http: false,
+                https: false,
+              },
+            },
+          };
+        },
+      };
+    },
+  ],
+
   presets: [
     [
       "classic",
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          docItemComponent: "@theme/ApiItem",
         },
         blog: {
           showReadingTime: true,
@@ -62,6 +102,33 @@ const config: Config = {
   ],
 
   themeConfig: {
+    languageTabs: [
+      {
+        highlight: "curl",
+        language: "curl",
+        logoClass: "curl",
+      },
+      {
+        highlight: "javascript",
+        language: "nodejs",
+        logoClass: "nodejs",
+      },
+      {
+        highlight: "go",
+        language: "go",
+        logoClass: "go",
+      },
+      {
+        highlight: "http",
+        language: "http",
+        logoClass: "http",
+      },
+      {
+        highlight: "python",
+        language: "python",
+        logoClass: "python",
+      },
+    ],
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     colorMode: {
@@ -79,6 +146,12 @@ const config: Config = {
           sidebarId: "documentationSidebar",
           position: "left",
           label: "Documentation",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "apiSidebar",
+          position: "left",
+          label: "API",
         },
         {
           href: "https://github.com/Koudmain/Koudmain-documentation",

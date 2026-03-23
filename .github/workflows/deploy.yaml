@@ -22,6 +22,13 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Clean API docs
+        run: npm run clean-api-docs
+
+      - name: Generate API Docs
+        run: npm run gen-api-docs
+
       - name: Build website
         run: npm run build
 
