@@ -1,0 +1,261 @@
+openapi: 3.0.3
+info:
+  title: API Publications & Users
+  version: 1.0.0
+  description: API pour la gestion des publications et des utilisateurs.
+servers:
+  - url: https://api.koudmain.fr
+  
+    description: Serveur de production
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Publication:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        created_by_user_id:
+          type: integer
+        address_id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        hourly_rate:
+          type: number
+          format: float
+        starting_date:
+          type: string
+          format: date-time
+        ending_date:
+          type: string
+          format: date-time
+        status:
+          type: string
+          description: "ex: reservé, en ligne"
+        createdAt:
+          type: string
+          format: date-time
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Publications
+    description: Gestion des publications
+  - name: Users
+    description: Gestion des utilisateurs
+
+paths:
+  /publication/create:
+    post:
+      tags:
+        - Publications
+      summary: Creates a new publication in the system.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_id:
+                  type: integer
+                created_by_user_id:
+                  type: integer
+                address_id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                hourly_rate:
+                  type: number
+                  format: float
+                starting_date:
+                  type: string
+                  format: date-time
+                ending_date:
+                  type: string
+                  format: date-time
+      responses:
+        '201':
+          description: Publication created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  id:
+                    type: integer
+                  createdAt:
+                    type: string
+                    format: date-time
+        '400':
+          description: 'Erreur de validation (ex: Mauvais id d''entreprise, mauvaise adresse, mauvais user)'
+        '401':
+          description: Token d'authentification manquant ou invalide.
+        '403':
+          description: L'utilisateur actuel n'a pas les droits pour créer une publication.
+        '500':
+          description: Erreur interne du serveur lors de la création en base de données.
+
+  /publication/update/{id}:
+    put:
+      tags:
+        - Publications
+      summary: Edit a new publication in the system.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address_id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                hourly_rate:
+                  type: number
+                  format: float
+                starting_date:
+                  type: string
+                  format: date-time
+                ending_date:
+                  type: string
+                  format: date-time
+      responses:
+        '201':
+          description: Publication éditée avec succès
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  id:
+                    type: integer
+        '400':
+          description: 'Erreur de validation (ex: Mauvais id)'
+        '401':
+          description: Token d'authentification manquant ou invalide.
+        '403':
+          description: L'utilisateur actuel n'a pas les droits pour créer une publication.
+        '500':
+          description: Erreur interne du serveur lors de la création en base de données.
+
+  /publication/get:
+    get:
+      tags:
+        - Publications
+      summary: Get all publications in the system
+      responses:
+        '201':
+          description: Liste des publications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Publication'
+        '400':
+          description: 'Erreur de validation (ex: Mauvais id)'
+        '401':
+          description: Token d'authentification manquant ou invalide.
+        '403':
+          description: L'utilisateur actuel n'a pas les droits pour créer une publication.
+        '500':
+          description: Erreur interne du serveur lors de la création en base de données.
+
+  /publication/{id}:
+    get:
+      tags:
+        - Publications
+      summary: Get a publication by its id in the system
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Publication récupérée avec succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Publication'
+        '401':
+          description: Token d'authentification manquant ou invalide.
+        '403':
+          description: L'utilisateur actuel n'a pas les droits pour créer une publication.
+        '500':
+          description: Erreur interne du serveur lors de la création en base de données.
+    delete:
+      tags:
+        - Publications
+      summary: Delete a publication in the system
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Liste des publications restantes (selon documentation)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Publication'
+        '401':
+          description: Token d'authentification manquant ou invalide.
+        '403':
+          description: L'utilisateur actuel n'a pas les droits pour créer une publication.
+        '500':
+          description: Erreur interne du serveur lors de la création en base de données.
+
+  /users/me:
+    get:
+      tags:
+        - Users
+      summary: Get user with token
+      responses:
+        '201':
+          description: Réponse de l'utilisateur (renvoie une liste de publications selon la documentation actuelle)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Publication'
+        '400':
+          description: 'Erreur de validation (ex: Mauvais id)'
+        '401':
+          description: Token d'authentification manquant ou invalide.
+        '403':
+          description: L'utilisateur actuel n'a pas les droits.
+        '500':
+          description: Erreur interne du serveur.
